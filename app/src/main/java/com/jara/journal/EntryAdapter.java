@@ -33,9 +33,24 @@ public class EntryAdapter extends ResourceCursorAdapter {
         content.setText(cursor.getString(colContent));
 
         int colMood = cursor.getColumnIndex("mood");
+        String moodText = cursor.getString(colMood);
         ImageView mood = (ImageView) view.findViewById(R.id.mood);
-        if (cursor.getString(colMood).equals("great")) {
-            mood.setImageResource(R.drawable.great);
+
+        // set mood image according to mood
+        if (moodText.equals("happy")) {
+            mood.setImageResource(R.drawable.happy);
+        }
+        else if (moodText.equals("nice")) {
+            mood.setImageResource(R.drawable.nice);
+        }
+        else if (moodText.equals("sad")) {
+            mood.setImageResource(R.drawable.sad);
+        }
+        else if (moodText.equals("angry")) {
+            mood.setImageResource(R.drawable.angry);
+        }
+        else {
+            mood.setImageResource(R.drawable.okay);
         }
     }
 }

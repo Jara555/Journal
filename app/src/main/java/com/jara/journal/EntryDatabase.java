@@ -40,7 +40,7 @@ public class EntryDatabase extends SQLiteOpenHelper {
 
         // insert sample items
         db.execSQL("INSERT INTO entries (title, content, mood) VALUES ('Happy day', 'This was a " +
-                "perfect day! I went to the beach and ate an icecream.', 'great');");
+                "perfect day! I went to the beach and ate an icecream.', 'happy');");
         db.execSQL("INSERT INTO entries (title, content, mood) VALUES ('Sad day', 'This was a sad " +
                 "day. My hamster died. I burried him in the garden.', 'sad');");
     }

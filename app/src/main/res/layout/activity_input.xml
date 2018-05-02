@@ -35,40 +35,54 @@
         android:layout_gravity="center">
 
         <ImageButton
-            android:id="@+id/great"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/happy"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
             android:onClick="setMood"
             app:layout_column="1"
             app:layout_row="0"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/happy" />
 
         <ImageButton
-            android:id="@+id/fine"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/nice"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
             android:onClick="setMood"
             app:layout_column="2"
             app:layout_row="0"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/nice" />
 
         <ImageButton
-            android:id="@+id/neutral"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/okay"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
             android:onClick="setMood"
             app:layout_column="3"
             app:layout_row="0"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/okay" />
 
         <ImageButton
             android:id="@+id/sad"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
             android:onClick="setMood"
             app:layout_column="4"
             app:layout_row="0"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/sad" />
+
+        <ImageButton
+            android:id="@+id/angry"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
+            android:onClick="setMood"
+            app:layout_column="5"
+            app:layout_row="0"
+            app:srcCompat="@drawable/angry" />
 
 
     </android.support.v7.widget.GridLayout>

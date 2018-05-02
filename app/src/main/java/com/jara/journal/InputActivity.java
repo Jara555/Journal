@@ -19,7 +19,7 @@ public class InputActivity extends AppCompatActivity {
         setContentView(R.layout.activity_input);
 
         // set mood default to neutral
-        mood = "neutral";
+        mood = "okay";
     }
 
     /* Submits new journal entry to database */
@@ -47,20 +47,23 @@ public class InputActivity extends AppCompatActivity {
     public void setMood(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.great:
-                mood = "great";
+            case R.id.happy:
+                mood = "happy";
                 break;
-            case R.id.fine:
-                mood = "fine";
+            case R.id.nice:
+                mood = "nice";
                 break;
-            case R.id.neutral:
-                mood = "neutral";
+            case R.id.okay:
+                mood = "okay";
                 break;
             case R.id.sad:
                 mood = "sad";
                 break;
+            case R.id.angry:
+                mood = "angry";
+                break;
             default:
-                mood = "neutral";
+                mood = "okay";
                 break;
         }
     }

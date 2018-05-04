@@ -4,5 +4,7 @@ This is an app that represents a journal. In this app, you are able to view a li
 
 ![](../master/doc/screenshot.png)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/Jara555/Journal?branch=master)](https://bettercodehub.com/)
+
 *** Created by Jara555 26-04-2018 ***
 

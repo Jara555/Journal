@@ -15,9 +15,11 @@
 
 package com.jara.journal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -89,16 +91,9 @@ public class MainActivity extends AppCompatActivity {
         /* Gets called for a long click: Deletes journal entry */
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-            // get cursor of clicked item
-            Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-
-            // get column index and id at that location
-            int colId = cursor.getColumnIndex("_id");
-            long clickedId = cursor.getInt(colId);
-
-            // for retrieved id call delete on database and update view
-            db.deleteEntry(clickedId);
-            updateData();
+            // get confirmation alert
+            AlertDialog diaBox = AskOption(parent, position);
+            diaBox.show();
 
             return true;
         }
@@ -109,4 +104,42 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = db.selectAll();
         adapter.swapCursor(cursor);
     }
+
+    /* Asks confirmation before deleting an item (Source: https://stackoverflow.com/a/11740348) */
+    private AlertDialog AskOption(final AdapterView<?> parent, final int position) {
+        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
+                //set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Are you sure you want to delete this item?")
+                .setIcon(R.drawable.angry)
+
+                // delete
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // get cursor of clicked item
+                        Cursor cursor = (Cursor) parent.getItemAtPosition(position);
+
+                        // get column index and id at that location
+                        int colId = cursor.getColumnIndex("_id");
+                        long clickedId = cursor.getInt(colId);
+
+                        // for retrieved id call delete on database and update view
+                        db.deleteEntry(clickedId);
+                        updateData();
+
+                        dialog.dismiss();
+                    }
+                })
+
+                // not delete
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+
+        return myQuittingDialogBox;
+    }
 }
+
